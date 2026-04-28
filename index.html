@@ -25,18 +25,30 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--cream);color:va
 .cur-ring.hover{border-color:var(--blue);width:56px;height:56px}
 .page{display:none;min-height:100vh}
 .page.active{display:block}
-header{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;padding:0 52px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,box-shadow .4s}
+header{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,box-shadow .4s}
 header.solid{background:rgba(244,240,234,.93);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 1px 0 var(--border)}
-.logo{font-size:1.15rem;font-weight:800;letter-spacing:-.04em;color:var(--ink);text-decoration:none;cursor:none}
+.logo{font-size:1.15rem;font-weight:800;letter-spacing:-.04em;color:var(--ink);text-decoration:none;cursor:none;flex-shrink:0}
 .logo em{color:var(--blue);font-style:normal}
-.h-nav{display:flex;align-items:center;gap:6px}
-.h-nav a{font-size:.85rem;font-weight:500;color:var(--ink-soft);text-decoration:none;padding:7px 14px;border-radius:30px;transition:background .2s,color .2s;cursor:none;letter-spacing:-.01em}
+.h-nav{display:flex;align-items:center;gap:4px}
+.h-nav a{font-size:.82rem;font-weight:500;color:var(--ink-soft);text-decoration:none;padding:7px 12px;border-radius:30px;transition:background .2s,color .2s;cursor:none;letter-spacing:-.01em;white-space:nowrap}
 .h-nav a:hover{background:rgba(15,14,12,.06);color:var(--ink)}
 .h-nav a.active{background:var(--ink);color:white}
-.h-right{display:flex;align-items:center;gap:12px}
-.lang-sel{display:flex;align-items:center;gap:4px;background:var(--cream-dark);border-radius:20px;padding:3px 5px;border:1px solid var(--border)}
-.lang-btn{font-size:.95rem;cursor:none;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;transition:background .2s,box-shadow .2s;line-height:1}
-.lang-btn:hover,.lang-btn.on{background:var(--white);box-shadow:var(--s-sm)}
+.h-right{display:flex;align-items:center;gap:8px}
+.lang-sel{display:flex;align-items:center;gap:2px;background:var(--cream-dark);border-radius:20px;padding:3px 4px;border:1px solid var(--border);flex-shrink:0}
+.lang-btn{font-size:.68rem;font-weight:700;letter-spacing:.04em;cursor:none;border-radius:16px;padding:4px 7px;height:26px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;transition:background .2s,box-shadow .2s,color .2s;color:var(--ink-muted);white-space:nowrap}
+.lang-btn:hover,.lang-btn.on{background:var(--white);box-shadow:var(--s-sm);color:var(--ink)}
+/* Hamburger for mobile */
+.ham-btn{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:transparent;padding:4px;border-radius:8px;flex-shrink:0}
+.ham-btn span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s}
+.ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham-btn.open span:nth-child(2){opacity:0}
+.ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* Mobile nav drawer */
+.mobile-nav{display:none;position:fixed;inset:0;top:68px;background:rgba(244,240,234,.97);backdrop-filter:blur(20px);z-index:190;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:40px 24px}
+.mobile-nav.open{display:flex}
+.mobile-nav a{font-size:1.8rem;font-weight:800;letter-spacing:-.04em;color:var(--ink);text-decoration:none;padding:12px 24px;border-radius:16px;width:100%;text-align:center;transition:background .2s,color .2s}
+.mobile-nav a.active{color:var(--blue)}
+.mobile-nav a:hover{background:rgba(15,14,12,.06)}
 .rv{opacity:0;transform:translateY(30px);transition:opacity .72s var(--ease),transform .72s var(--ease)}
 .rv.in{opacity:1;transform:none}
 .d1{transition-delay:.08s}.d2{transition-delay:.17s}.d3{transition-delay:.27s}.d4{transition-delay:.4s}
@@ -352,7 +364,9 @@ footer{background:var(--ink);color:white;padding:56px 52px 32px;border-radius:36
 }
 /* Responsive fixes */
 @media(max-width:900px){
-  header{padding:0 24px}
+  header{padding:0 20px}
+  .h-nav{display:none}
+  .ham-btn{display:flex}
   #hero,.about-s,.skills-s,.contact-s,.mac-wrap,.ct-hero,.ct-body{padding-left:24px;padding-right:24px}
   .hero-inner{grid-template-columns:1fr}
   .hero-card-wrap{display:none}
@@ -385,13 +399,23 @@ footer{background:var(--ink);color:white;padding:56px 52px 32px;border-radius:36
     <a href="#" data-page="contact" data-i18n="nav-contact">Contact</a>
   </nav>
   <div class="h-right">
-    <div class="lang-sel">
-      <button class="lang-btn on" data-lang="en">🇬🇧</button>
-      <button class="lang-btn" data-lang="es">🇪🇸</button>
-      <button class="lang-btn" data-lang="ca">🇨🇦</button>
+    <div class="lang-sel" role="group" aria-label="Seleccionar idioma">
+      <button class="lang-btn on" data-lang="en" aria-label="English" aria-pressed="true">EN</button>
+      <button class="lang-btn" data-lang="es" aria-label="Español" aria-pressed="false">ES</button>
+      <button class="lang-btn" data-lang="ca" aria-label="Català" aria-pressed="false">CAT</button>
     </div>
+    <button class="ham-btn" id="hamBtn" aria-label="Obrir menú" aria-expanded="false" aria-controls="mobileNav">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+
+<!-- Mobile nav drawer -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Menú mòbil">
+  <a href="#" data-page="home" data-i18n="nav-home" class="active">Home</a>
+  <a href="#" data-page="projects" data-i18n="nav-projects">My Projects</a>
+  <a href="#" data-page="contact" data-i18n="nav-contact">Contact</a>
+</nav>
 
 <!-- ══ HOME ══════════════════════════════════════════ -->
 <div id="page-home" class="page active">
@@ -525,39 +549,39 @@ footer{background:var(--ink);color:white;padding:56px 52px 32px;border-radius:36
   <section class="exp-s" aria-label="Experiència professional">
     <div class="exp-grid">
       <div>
-        <div class="lbl rv">Trajectòria</div>
-        <h2 class="rv d1" style="font-size:clamp(2rem,3.8vw,3.2rem);font-weight:800;letter-spacing:-.04em;line-height:1.02;margin-bottom:12px">Experiència &amp; <em style="font-style:italic;color:var(--blue)">recorregut.</em></h2>
-        <p class="rv d2" style="font-size:.95rem;color:var(--ink-muted);line-height:1.72;max-width:300px">Del projecte personal a l'empresa. Cada etapa, un salt de qualitat.</p>
+        <div class="lbl rv" data-i18n="exp-lbl">Trajectòria</div>
+        <h2 class="rv d1" style="font-size:clamp(2rem,3.8vw,3.2rem);font-weight:800;letter-spacing:-.04em;line-height:1.02;margin-bottom:12px" data-i18n="exp-h2">Experiència &amp; <em style="font-style:italic;color:var(--blue)">recorregut.</em></h2>
+        <p class="rv d2" style="font-size:.95rem;color:var(--ink-muted);line-height:1.72;max-width:300px" data-i18n="exp-sub">Del projecte personal a l'empresa. Cada etapa, un salt de qualitat.</p>
       </div>
       <div class="exp-list rv d1">
         <div class="exp-item current">
           <div class="exp-dot" aria-hidden="true">💼</div>
           <div class="exp-body">
-            <div class="exp-role">Web Designer &amp; Landing Pages</div>
-            <div class="exp-company">Simon</div>
-            <div class="exp-date">2024 — Present · Actualment</div>
-            <div class="exp-desc">Disseny i construcció de webs i landing pages d'alta conversió per a clients reals. Responsable del disseny visual, prototipat en Figma i implementació frontend. Treball estret amb equip de màrqueting per maximitzar resultats.</div>
-            <span class="exp-tag">🟢 Actual</span><span class="exp-tag">Web Design</span><span class="exp-tag">Landing Pages</span><span class="exp-tag">Frontend</span>
+            <div class="exp-role" data-i18n="exp1-role">Web Designer &amp; Landing Pages</div>
+            <div class="exp-company" data-i18n="exp1-company">Simon</div>
+            <div class="exp-date" data-i18n="exp1-date">2024 — Present · Actualment</div>
+            <div class="exp-desc" data-i18n="exp1-desc">Disseny i construcció de webs i landing pages d'alta conversió per a clients reals.</div>
+            <span class="exp-tag" data-i18n="exp1-tag1">🟢 Actual</span><span class="exp-tag" data-i18n="exp1-tag2">Web Design</span><span class="exp-tag" data-i18n="exp1-tag3">Landing Pages</span><span class="exp-tag" data-i18n="exp1-tag4">Frontend</span>
           </div>
         </div>
         <div class="exp-item personal">
           <div class="exp-dot" aria-hidden="true">🚀</div>
           <div class="exp-body">
-            <div class="exp-role">Projectes Personals &amp; Freelance</div>
-            <div class="exp-company">Oriol Gallart — Independent</div>
-            <div class="exp-date">2022 — Present · Continu</div>
-            <div class="exp-desc">Creació de projectes conceptuals i per a clients: dashboards, landing pages, identitats de marca i sistemes de disseny. Cada projecte tractat com un encàrrec real — recerca, estratègia i codi a nivell de producció.</div>
-            <span class="exp-tag">28+ projectes</span><span class="exp-tag">Branding</span><span class="exp-tag">UI/UX</span><span class="exp-tag">Figma</span>
+            <div class="exp-role" data-i18n="exp2-role">Projectes Personals &amp; Freelance</div>
+            <div class="exp-company" data-i18n="exp2-company">Oriol Gallart — Independent</div>
+            <div class="exp-date" data-i18n="exp2-date">2022 — Present · Continu</div>
+            <div class="exp-desc" data-i18n="exp2-desc">Creació de projectes conceptuals i per a clients: dashboards, landing pages, identitats de marca i sistemes de disseny.</div>
+            <span class="exp-tag" data-i18n="exp2-tag1">28+ projectes</span><span class="exp-tag" data-i18n="exp2-tag2">Branding</span><span class="exp-tag" data-i18n="exp2-tag3">UI/UX</span><span class="exp-tag" data-i18n="exp2-tag4">Figma</span>
           </div>
         </div>
         <div class="exp-item">
           <div class="exp-dot" aria-hidden="true">🎓</div>
           <div class="exp-body">
-            <div class="exp-role">Formació en Disseny Web &amp; Frontend</div>
-            <div class="exp-company">Autoaprenentatge · Cursos especialitzats</div>
-            <div class="exp-date">2021 — 2022 · Bases</div>
-            <div class="exp-desc">Dominin de HTML, CSS i JavaScript. Figma, sistemes de disseny i principis UX. Des del primer dia, un enfocament orientat a la qualitat i l'atenció al detall.</div>
-            <span class="exp-tag">HTML/CSS</span><span class="exp-tag">JavaScript</span><span class="exp-tag">Figma</span>
+            <div class="exp-role" data-i18n="exp3-role">Formació en Disseny Web &amp; Frontend</div>
+            <div class="exp-company" data-i18n="exp3-company">Autoaprenentatge · Cursos especialitzats</div>
+            <div class="exp-date" data-i18n="exp3-date">2021 — 2022 · Bases</div>
+            <div class="exp-desc" data-i18n="exp3-desc">Dominin de HTML, CSS i JavaScript. Figma, sistemes de disseny i principis UX.</div>
+            <span class="exp-tag" data-i18n="exp3-tag1">HTML/CSS</span><span class="exp-tag" data-i18n="exp3-tag2">JavaScript</span><span class="exp-tag" data-i18n="exp3-tag3">Figma</span>
           </div>
         </div>
       </div>
@@ -847,7 +871,20 @@ const T={
     'p4-t':'Pulse Finance App','p4-d':'Mobile-first UI for a personal finance tracking app.','p4-r':'4.8★ in beta user testing.',
     'pd-back':'Back to projects','pd-challenge':'The Challenge','pd-approach':'Design Approach','pd-outcome':'Outcome',
     'pd-more':'← More projects','pd-collab':'Start a similar project →',
-    'ft-copy':'© 2025 Oriol Gallart. Crafted with obsessive attention to detail.','ft-made':'Designed & built in Barcelona 🇪🇸'
+    'ft-copy':'© 2025 Oriol Gallart. Crafted with obsessive attention to detail.','ft-made':'Designed & built in Barcelona 🇪🇸',
+    'exp-lbl':'Career','exp-h2':'Experience & journey.',
+    'exp-sub':'From personal projects to the real industry. Every step, a quality leap.',
+    'exp1-role':'Web Designer & Landing Pages','exp1-company':'Simon','exp1-date':'2024 — Present · Current',
+    'exp1-desc':'Design and development of high-converting websites and landing pages for real clients. Responsible for visual design, Figma prototyping and frontend implementation. Close collaboration with the marketing team to maximise results.',
+    'exp1-tag1':'🟢 Current','exp1-tag2':'Web Design','exp1-tag3':'Landing Pages','exp1-tag4':'Frontend',
+    'exp2-role':'Personal Projects & Freelance','exp2-company':'Oriol Gallart — Independent',
+    'exp2-date':'2022 — Present · Ongoing',
+    'exp2-desc':'Creation of conceptual and client projects: dashboards, landing pages, brand identities and design systems. Each project treated as a real client engagement — research, strategy and production-level code.',
+    'exp2-tag1':'28+ projects','exp2-tag2':'Branding','exp2-tag3':'UI/UX','exp2-tag4':'Figma',
+    'exp3-role':'Web Design & Frontend Training','exp3-company':'Self-taught · Specialised courses',
+    'exp3-date':'2021 — 2022 · Foundations',
+    'exp3-desc':'Mastery of HTML, CSS and JavaScript. Figma, design systems and UX principles. From day one, a focus on quality and attention to detail.',
+    'exp3-tag1':'HTML/CSS','exp3-tag2':'JavaScript','exp3-tag3':'Figma'
   },
   es:{
     'nav-home':'Inicio','nav-projects':'Mis Proyectos','nav-contact':'Contacto',
@@ -879,7 +916,20 @@ const T={
     'p4-t':'App Pulse Finance','p4-d':'UI mobile-first para app de finanzas personales.','p4-r':'4.8★ en pruebas beta.',
     'pd-back':'Volver a proyectos','pd-challenge':'El Reto','pd-approach':'Enfoque de Diseño','pd-outcome':'Resultado',
     'pd-more':'← Más proyectos','pd-collab':'Iniciar un proyecto similar →',
-    'ft-copy':'© 2025 Oriol. Creado con atención obsesiva al detalle.','ft-made':'Diseñado y construido en Barcelona 🇪🇸'
+    'ft-copy':'© 2025 Oriol. Creado con atención obsesiva al detalle.','ft-made':'Diseñado y construido en Barcelona 🇪🇸',
+    'exp-lbl':'Trayectoria','exp-h2':'Experiencia & recorrido.',
+    'exp-sub':'Del proyecto personal a la empresa. Cada etapa, un salto de calidad.',
+    'exp1-role':'Web Designer & Landing Pages','exp1-company':'Simon','exp1-date':'2024 — Presente · Actual',
+    'exp1-desc':'Diseño y desarrollo de webs y landing pages de alta conversión para clientes reales. Responsable del diseño visual, prototipado en Figma e implementación frontend. Trabajo estrecho con el equipo de marketing para maximizar resultados.',
+    'exp1-tag1':'🟢 Actual','exp1-tag2':'Web Design','exp1-tag3':'Landing Pages','exp1-tag4':'Frontend',
+    'exp2-role':'Proyectos Personales & Freelance','exp2-company':'Oriol Gallart — Independiente',
+    'exp2-date':'2022 — Presente · Continuo',
+    'exp2-desc':'Creación de proyectos conceptuales y para clientes: dashboards, landing pages, identidades de marca y sistemas de diseño. Cada proyecto tratado como un encargo real — investigación, estrategia y código a nivel de producción.',
+    'exp2-tag1':'28+ proyectos','exp2-tag2':'Branding','exp2-tag3':'UI/UX','exp2-tag4':'Figma',
+    'exp3-role':'Formación en Diseño Web & Frontend','exp3-company':'Autoaprendizaje · Cursos especializados',
+    'exp3-date':'2021 — 2022 · Bases',
+    'exp3-desc':'Dominio de HTML, CSS y JavaScript. Figma, sistemas de diseño y principios UX. Desde el primer día, un enfoque orientado a la calidad y la atención al detalle.',
+    'exp3-tag1':'HTML/CSS','exp3-tag2':'JavaScript','exp3-tag3':'Figma'
   },
   ca:{
     'nav-home':'Inici','nav-projects':'Els Meus Projectes','nav-contact':'Contacte',
@@ -911,7 +961,20 @@ const T={
     'p4-t':'App Pulse Finance','p4-d':'UI mobile-first per a app de finances personals.','p4-r':'4.8★ en proves beta.',
     'pd-back':'Tornar als projectes','pd-challenge':'El Repte','pd-approach':'Enfocament de Disseny','pd-outcome':'Resultat',
     'pd-more':'← Més projectes','pd-collab':'Iniciar un projecte similar →',
-    'ft-copy':'© 2025 Oriol Gallart. Creat amb atenció obsessiva al detall.','ft-made':'Dissenyat i construït a Barcelona 🇪🇸'
+    'ft-copy':'© 2025 Oriol Gallart. Creat amb atenció obsessiva al detall.','ft-made':'Dissenyat i construït a Barcelona 🇪🇸',
+    'exp-lbl':'Trajectòria','exp-h2':'Experiència & recorregut.',
+    'exp-sub':'Del projecte personal a l\'empresa. Cada etapa, un salt de qualitat.',
+    'exp1-role':'Web Designer & Landing Pages','exp1-company':'Simon','exp1-date':'2024 — Present · Actualment',
+    'exp1-desc':'Disseny i construcció de webs i landing pages d\'alta conversió per a clients reals. Responsable del disseny visual, prototipat en Figma i implementació frontend. Treball estret amb equip de màrqueting per maximitzar resultats.',
+    'exp1-tag1':'🟢 Actual','exp1-tag2':'Web Design','exp1-tag3':'Landing Pages','exp1-tag4':'Frontend',
+    'exp2-role':'Projectes Personals & Freelance','exp2-company':'Oriol Gallart — Independent',
+    'exp2-date':'2022 — Present · Continu',
+    'exp2-desc':'Creació de projectes conceptuals i per a clients: dashboards, landing pages, identitats de marca i sistemes de disseny. Cada projecte tractat com un encàrrec real — recerca, estratègia i codi a nivell de producció.',
+    'exp2-tag1':'28+ projectes','exp2-tag2':'Branding','exp2-tag3':'UI/UX','exp2-tag4':'Figma',
+    'exp3-role':'Formació en Disseny Web & Frontend','exp3-company':'Autoaprenentatge · Cursos especialitzats',
+    'exp3-date':'2021 — 2022 · Bases',
+    'exp3-desc':'Dominin de HTML, CSS i JavaScript. Figma, sistemes de disseny i principis UX. Des del primer dia, un enfocament orientat a la qualitat i l\'atenció al detall.',
+    'exp3-tag1':'HTML/CSS','exp3-tag2':'JavaScript','exp3-tag3':'Figma'
   }
 };
 
@@ -924,7 +987,11 @@ function applyLang(l){
     const k=el.getAttribute('data-i18n');
     if(t[k]!==undefined) el.textContent=t[k];
   });
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
+  document.querySelectorAll('.lang-btn').forEach(b=>{
+    const on=b.dataset.lang===l;
+    b.classList.toggle('on',on);
+    b.setAttribute('aria-pressed',on?'true':'false');
+  });
   document.documentElement.lang=l;
   if(curProj) fillProject(curProj);
 }
@@ -940,9 +1007,26 @@ function navigate(page,proj){
   }
   curPage=page;
   window.scrollTo({top:0,behavior:'instant'});
-  document.querySelectorAll('.h-nav a').forEach(a=>a.classList.toggle('active',a.dataset.page===page));
+  document.querySelectorAll('.h-nav a, .mobile-nav a').forEach(a=>a.classList.toggle('active',a.dataset.page===page));
+  // Close mobile nav on navigate
+  closeMobileNav();
   setTimeout(triggerReveals,60);
 }
+
+function closeMobileNav(){
+  const btn=document.getElementById('hamBtn');
+  const nav=document.getElementById('mobileNav');
+  btn.classList.remove('open');
+  nav.classList.remove('open');
+  btn.setAttribute('aria-expanded','false');
+}
+
+// Hamburger
+document.getElementById('hamBtn').addEventListener('click',function(){
+  const open=this.classList.toggle('open');
+  document.getElementById('mobileNav').classList.toggle('open',open);
+  this.setAttribute('aria-expanded',open?'true':'false');
+});
 
 function fillProject(projId){
   const p=projects[projId]; if(!p) return;
