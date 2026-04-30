@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Oriol Gallart - Web Designer & Frontend Developer</title>
+<title>Oriol Gallart — Web Designer & Frontend Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
@@ -18,24 +18,31 @@
   --ease:cubic-bezier(0.4,0,0.2,1);
 }
 html{scroll-behavior:smooth}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased}
-.cur{position:fixed;width:10px;height:10px;background:var(--ink);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s}
-.cur-ring{position:fixed;width:38px;height:38px;border:1.5px solid rgba(15,14,12,.3);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .28s,height .28s,border-color .28s}
-.cur.hover{background:var(--blue);transform:translate(-50%,-50%) scale(1.6)}
-.cur-ring.hover{border-color:var(--blue);width:56px;height:56px}
+/* CURSOR OVERRIDE - use system default */
+*{cursor:auto!important}
+a,button,[data-proj],[data-page],.lang-btn,.ham-btn,.pc,.sv-card{cursor:pointer!important}
+.f-input,.f-ta{cursor:text!important}
+.cur,.cur-ring{display:none!important}
+
+
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;cursor:auto;-webkit-font-smoothing:antialiased}
+.cur,.cur-ring{display:none!important}
+
+
+
 .page{display:none;min-height:100vh}
 .page.active{display:block}
 header{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,box-shadow .4s}
 header.solid{background:rgba(244,240,234,.93);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 1px 0 var(--border)}
-.logo{font-size:1.15rem;font-weight:800;letter-spacing:-.04em;color:var(--ink);text-decoration:none;cursor:none;flex-shrink:0}
+.logo{font-size:1.15rem;font-weight:800;letter-spacing:-.04em;color:var(--ink);text-decoration:none;flex-shrink:0}
 .logo em{color:var(--blue);font-style:normal}
 .h-nav{display:flex;align-items:center;gap:4px}
-.h-nav a{font-size:.82rem;font-weight:500;color:var(--ink-soft);text-decoration:none;padding:7px 12px;border-radius:30px;transition:background .2s,color .2s;cursor:none;letter-spacing:-.01em;white-space:nowrap}
+.h-nav a{font-size:.82rem;font-weight:500;color:var(--ink-soft);text-decoration:none;padding:7px 12px;border-radius:30px;transition:background .2s,color .2s;letter-spacing:-.01em;white-space:nowrap}
 .h-nav a:hover{background:rgba(15,14,12,.06);color:var(--ink)}
 .h-nav a.active{background:var(--ink);color:white}
 .h-right{display:flex;align-items:center;gap:8px}
 .lang-sel{display:flex;align-items:center;gap:2px;background:var(--cream-dark);border-radius:20px;padding:3px 4px;border:1px solid var(--border);flex-shrink:0}
-.lang-btn{font-size:.68rem;font-weight:700;letter-spacing:.04em;cursor:none;border-radius:16px;padding:4px 7px;height:26px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;transition:background .2s,box-shadow .2s,color .2s;color:var(--ink-muted);white-space:nowrap}
+.lang-btn{font-size:.68rem;font-weight:700;letter-spacing:.04em;border-radius:16px;padding:4px 7px;height:26px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;transition:background .2s,box-shadow .2s,color .2s;color:var(--ink-muted);white-space:nowrap}
 .lang-btn:hover,.lang-btn.on{background:var(--white);box-shadow:var(--s-sm);color:var(--ink)}
 /* Hamburger for mobile */
 .ham-btn{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:transparent;padding:4px;border-radius:8px;flex-shrink:0}
@@ -54,11 +61,11 @@ header.solid{background:rgba(244,240,234,.93);backdrop-filter:blur(24px);-webkit
 .d1{transition-delay:.08s}.d2{transition-delay:.17s}.d3{transition-delay:.27s}.d4{transition-delay:.4s}
 .lbl{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:18px}
 .lbl::before{content:'';width:22px;height:1.5px;background:var(--blue)}
-.btn-dark{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:white;padding:14px 26px;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;letter-spacing:-.015em;transition:background .25s,transform .25s,box-shadow .25s;cursor:none;border:none;font-family:'Plus Jakarta Sans',sans-serif}
+.btn-dark{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:white;padding:14px 26px;border-radius:50px;font-size:.875rem;font-weight:700;text-decoration:none;letter-spacing:-.015em;transition:background .25s,transform .25s,box-shadow .25s;border:none;font-family:'Plus Jakarta Sans',sans-serif}
 .btn-dark:hover{background:var(--blue);transform:translateY(-2px);box-shadow:0 8px 28px rgba(27,79,255,.32)}
 .btn-dark svg{transition:transform .25s}
 .btn-dark:hover svg{transform:translate(3px,-3px)}
-.btn-outline{display:inline-flex;align-items:center;gap:7px;color:var(--ink-soft);font-size:.875rem;font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--border);padding-bottom:1px;transition:color .2s,border-color .2s;cursor:none;letter-spacing:-.01em}
+.btn-outline{display:inline-flex;align-items:center;gap:7px;color:var(--ink-soft);font-size:.875rem;font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--border);padding-bottom:1px;transition:color .2s,border-color .2s;letter-spacing:-.01em}
 .btn-outline:hover{color:var(--ink);border-color:var(--ink)}
 
 /* ── HOME ── */
@@ -122,7 +129,7 @@ header.solid{background:rgba(244,240,234,.93);backdrop-filter:blur(24px);-webkit
 /* Services */
 .sv-band{background:var(--ink);border-radius:36px;margin:0 40px;padding:90px 52px}
 .sv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:56px}
-.sv-card{padding:38px 32px;border:1px solid rgba(255,255,255,.07);transition:background .3s;cursor:none;position:relative;overflow:hidden}
+.sv-card{padding:38px 32px;border:1px solid rgba(255,255,255,.07);transition:background .3s;position:relative;overflow:hidden}
 .sv-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(27,79,255,.08),transparent);opacity:0;transition:opacity .35s}
 .sv-card:hover::before{opacity:1}
 .sv-card:nth-child(1){border-radius:24px 0 0 0}.sv-card:nth-child(3){border-radius:0 24px 0 0}.sv-card:nth-child(4){border-radius:0 0 0 24px}.sv-card:nth-child(6){border-radius:0 0 24px 0}
@@ -190,7 +197,7 @@ header.solid{background:rgba(244,240,234,.93);backdrop-filter:blur(24px);-webkit
 /* Skills */
 .skills-s{padding:110px 52px;max-width:1300px;margin:0 auto;border-top:1px solid var(--border)}
 .sk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:10px}
-.sk-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-md);padding:26px 22px;transition:box-shadow .3s,transform .3s;cursor:none;position:relative;overflow:hidden}
+.sk-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-md);padding:26px 22px;transition:box-shadow .3s,transform .3s;position:relative;overflow:hidden}
 .sk-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--blue);transform:scaleX(0);transition:transform .3s;transform-origin:left}
 .sk-card:hover::after{transform:scaleX(1)}
 .sk-card:hover{box-shadow:var(--s-md);transform:translateY(-4px)}
@@ -220,7 +227,7 @@ header.solid{background:rgba(244,240,234,.93);backdrop-filter:blur(24px);-webkit
 .f-input::placeholder,.f-ta::placeholder{color:var(--ink-muted)}
 .f-ta{min-height:130px;resize:vertical}
 .f-row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.f-submit{width:100%;background:var(--ink);color:white;padding:15px;border-radius:var(--r-sm);font-family:'Plus Jakarta Sans',sans-serif;font-size:.92rem;font-weight:700;border:none;cursor:none;transition:background .25s,transform .25s,box-shadow .25s;display:flex;align-items:center;justify-content:center;gap:9px;letter-spacing:-.01em}
+.f-submit{width:100%;background:var(--ink);color:white;padding:15px;border-radius:var(--r-sm);font-family:'Plus Jakarta Sans',sans-serif;font-size:.92rem;font-weight:700;border:none;transition:background .25s,transform .25s,box-shadow .25s;display:flex;align-items:center;justify-content:center;gap:9px;letter-spacing:-.01em}
 .f-submit:hover{background:var(--blue);transform:translateY(-2px);box-shadow:0 8px 28px rgba(27,79,255,.3)}
 
 /* Footer */
@@ -242,7 +249,7 @@ footer{background:var(--ink);color:white;padding:56px 52px 32px;border-radius:36
 .proj-hero p{font-size:1.05rem;color:var(--ink-soft);max-width:480px;line-height:1.72;letter-spacing:-.01em}
 .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;padding:0 52px 100px;max-width:1300px;margin:0 auto}
 .proj-grid .pc:first-child{grid-column:span 2}
-.pc{background:var(--card);border:1px solid var(--border);border-radius:var(--r-xl);overflow:hidden;cursor:none;transition:box-shadow .35s,transform .35s}
+.pc{background:var(--card);border:1px solid var(--border);border-radius:var(--r-xl);overflow:hidden;transition:box-shadow .35s,transform .35s}
 .pc:hover{box-shadow:var(--s-lg);transform:translateY(-7px)}
 .pc-vis{position:relative;overflow:hidden;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center}
 .pc:first-child .pc-vis{aspect-ratio:21/9}
@@ -261,11 +268,11 @@ footer{background:var(--ink);color:white;padding:56px 52px 32px;border-radius:36
 .pc-tag{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--cream-dark);color:var(--ink-muted);padding:4px 11px;border-radius:20px;border:1px solid var(--border)}
 .pc-title{font-size:1.5rem;font-weight:800;letter-spacing:-.035em;margin-bottom:9px;line-height:1.15}
 .pc-desc{font-size:.875rem;color:var(--ink-soft);line-height:1.72;margin-bottom:18px}
-.pc-result{background:var(--cream-dark);border-radius:var(--r-sm);padding:13px 15px;font-size:.82rem;color:var(--ink-soft)}
+.pc-result{background:var(--cream-dark);border-radius:var(--r-sm);padding:13px 15px;font-size:.82rem;color:var(--ink-soft);border-left:3px solid var(--blue)}
 .pc-result strong{color:var(--ink);font-weight:700}
 
 /* ── PROJECT DETAIL ── */
-.proj-back{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:600;color:var(--ink-soft);text-decoration:none;cursor:none;transition:color .2s;letter-spacing:-.01em}
+.proj-back{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:600;color:var(--ink-soft);text-decoration:none;transition:color .2s;letter-spacing:-.01em}
 .proj-back:hover{color:var(--blue)}
 .proj-detail{max-width:860px;margin:0 auto;padding:130px 52px 100px}
 .pd-vis{border-radius:var(--r-xl);overflow:hidden;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;margin-bottom:56px}
@@ -324,7 +331,7 @@ footer{background:var(--ink);color:white;padding:56px 52px 32px;border-radius:36
 .soon-track{display:flex;width:max-content;animation:soon-scroll 18s linear infinite}
 @keyframes soon-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .soon-item{display:flex;align-items:center;gap:14px;padding:0 20px;white-space:nowrap}
-.soon-text{font-size:1.4rem;font-weight:800;letter-spacing:-.03em;color:#39FF14}
+.soon-text{font-size:1.4rem;font-weight:800;letter-spacing:-.03em;color:rgba(255,255,255,.12)}
 .soon-badge{background:rgba(27,79,255,.2);color:#7BA6FF;border:1px solid rgba(27,79,255,.3);border-radius:20px;padding:3px 12px;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
 .soon-main{padding:44px 52px 52px;position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.06)}
 .soon-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#7BA6FF;margin-bottom:14px;display:flex;align-items:center;gap:8px}
@@ -431,7 +438,7 @@ footer{background:var(--ink);color:white;padding:56px 52px 32px;border-radius:36
           <span class="blue" data-i18n="h-t2">experiences</span><br>
           <span class="lined" data-i18n="h-t3">that convert.</span>
         </h1>
-        <p class="hero-p rv d2" data-i18n="h-desc">Web Designer & Frontend Developer based in Barcelona. I craft digital products that merge strong visual identity with seamless functionality - pixel-perfect, performance-driven.</p>
+        <p class="hero-p rv d2" data-i18n="h-desc">Web Designer & Frontend Developer based in Barcelona. I craft digital products that merge strong visual identity with seamless functionality — pixel-perfect, performance-driven.</p>
         <div class="hero-btns rv d3">
           <a href="#" data-page="projects" class="btn-dark">
             <span data-i18n="h-cta1">View my work</span>
@@ -449,11 +456,11 @@ footer{background:var(--ink);color:white;padding:56px 52px 32px;border-radius:36
           <div class="hc-body">
             <div class="hcb-chip">Case Study</div>
             <div class="hcb-title">Lumina Analytics</div>
-            <div class="hcb-desc">Complete redesign of a B2B analytics platform - clarity, speed and delight.</div>
+            <div class="hcb-desc">Complete redesign of a B2B analytics platform — clarity, speed and delight.</div>
             <div class="hcb-bar"><div class="hcb-bar-fill" style="background:var(--blue);--w:78%"></div></div>
-            <div style="font-size:.68rem;color:var(--ink-muted);margin-bottom:6px">Design - 78%</div>
+            <div style="font-size:.68rem;color:var(--ink-muted);margin-bottom:6px">Design — 78%</div>
             <div class="hcb-bar"><div class="hcb-bar-fill" style="background:var(--coral);--w:95%"></div></div>
-            <div style="font-size:.68rem;color:var(--ink-muted)">Development - 95%</div>
+            <div style="font-size:.68rem;color:var(--ink-muted)">Development — 95%</div>
             <div class="hcb-stats">
               <div><div class="hcb-stat-n">+142%</div><div class="hcb-stat-l">Conversion lift</div></div>
               <div><div class="hcb-stat-n">4.9★</div><div class="hcb-stat-l">Client rating</div></div>
@@ -477,8 +484,8 @@ footer{background:var(--ink);color:white;padding:56px 52px 32px;border-radius:36
       <div class="about-t">
         <div class="lbl rv" data-i18n="ab-lbl">About me</div>
         <h2 class="rv d1" style="font-size:clamp(2rem,3.8vw,3.2rem);font-weight:800;letter-spacing:-.04em;line-height:1.02;margin-bottom:18px" data-i18n="ab-h2">Obsessed with the <em style="font-style:italic;color:var(--blue)">craft</em> of the web.</h2>
-        <p class="rv d2" data-i18n="ab-p1">I'm a <strong>web designer and frontend developer</strong> who believes the best digital products are born at the intersection of art and engineering. I don't just make things look good - I make them work beautifully.</p>
-        <p class="rv d3" data-i18n="ab-p2">Based in Barcelona, I work across branding, UI/UX and production-ready code. Every detail - spacing, type, motion - is deliberate. <strong>Systems thinking, typographic precision and user empathy</strong> guide everything I build.</p>
+        <p class="rv d2" data-i18n="ab-p1">I'm a <strong>web designer and frontend developer</strong> who believes the best digital products are born at the intersection of art and engineering. I don't just make things look good — I make them work beautifully.</p>
+        <p class="rv d3" data-i18n="ab-p2">Based in Barcelona, I work across branding, UI/UX and production-ready code. Every detail — spacing, type, motion — is deliberate. <strong>Systems thinking, typographic precision and user empathy</strong> guide everything I build.</p>
         <div class="about-nums rv d4">
           <div class="an-card"><div class="an-n">28<sup>+</sup></div><div class="an-l" data-i18n="ab-s1">Projects completed</div></div>
           <div class="an-card"><div class="an-n">3<sup>yr</sup></div><div class="an-l" data-i18n="ab-s2">Industry experience</div></div>
@@ -493,10 +500,10 @@ footer{background:var(--ink);color:white;padding:56px 52px 32px;border-radius:36
     <div class="lbl" style="color:rgba(255,255,255,.35)" data-i18n="sv-lbl">What I offer</div>
     <h2 style="font-size:clamp(2rem,4vw,3.3rem);font-weight:800;letter-spacing:-.04em;line-height:1;color:white;margin-top:6px" data-i18n="sv-h2">Services built for<br><em style="font-style:italic;color:#7BA6FF">real results.</em></h2>
     <div class="sv-grid">
-      <div class="sv-card rv"><div class="sv-num">01</div><div class="sv-ico">🎨</div><div class="sv-ttl" data-i18n="s1t">Web Design</div><div class="sv-desc" data-i18n="s1d">End-to-end website design with a strategic eye - from wireframe to polished visual. Experiences that communicate your brand's value instantly.</div><div class="sv-chip" data-i18n="s1c">Brand + Strategy</div></div>
-      <div class="sv-card rv d1"><div class="sv-num">02</div><div class="sv-ico">⚡</div><div class="sv-ttl" data-i18n="s2t">Landing Pages</div><div class="sv-desc" data-i18n="s2d">High-converting landing pages built to drive action. Every element intentional - from headline hierarchy to micro-copy.</div><div class="sv-chip" data-i18n="s2c">Conversion focused</div></div>
+      <div class="sv-card rv"><div class="sv-num">01</div><div class="sv-ico">🎨</div><div class="sv-ttl" data-i18n="s1t">Web Design</div><div class="sv-desc" data-i18n="s1d">End-to-end website design with a strategic eye — from wireframe to polished visual. Experiences that communicate your brand's value instantly.</div><div class="sv-chip" data-i18n="s1c">Brand + Strategy</div></div>
+      <div class="sv-card rv d1"><div class="sv-num">02</div><div class="sv-ico">⚡</div><div class="sv-ttl" data-i18n="s2t">Landing Pages</div><div class="sv-desc" data-i18n="s2d">High-converting landing pages built to drive action. Every element intentional — from headline hierarchy to micro-copy.</div><div class="sv-chip" data-i18n="s2c">Conversion focused</div></div>
       <div class="sv-card rv d2"><div class="sv-num">03</div><div class="sv-ico">🖥️</div><div class="sv-ttl" data-i18n="s3t">UI / UX Design</div><div class="sv-desc" data-i18n="s3d">Interfaces that feel intuitive before users even think about them. Systems, components, flows that scale with your product.</div><div class="sv-chip" data-i18n="s3c">Product design</div></div>
-      <div class="sv-card rv"><div class="sv-num">04</div><div class="sv-ico">💻</div><div class="sv-ttl" data-i18n="s4t">Frontend Dev</div><div class="sv-desc" data-i18n="s4d">Clean, semantic HTML/CSS and modern JavaScript. Fast, accessible frontends built to last - a pleasure to maintain.</div><div class="sv-chip" data-i18n="s4c">Performance first</div></div>
+      <div class="sv-card rv"><div class="sv-num">04</div><div class="sv-ico">💻</div><div class="sv-ttl" data-i18n="s4t">Frontend Dev</div><div class="sv-desc" data-i18n="s4d">Clean, semantic HTML/CSS and modern JavaScript. Fast, accessible frontends built to last — a pleasure to maintain.</div><div class="sv-chip" data-i18n="s4c">Performance first</div></div>
       <div class="sv-card rv d1"><div class="sv-num">05</div><div class="sv-ico">✦</div><div class="sv-ttl" data-i18n="s5t">Portfolio & Brand</div><div class="sv-desc" data-i18n="s5d">Your online presence deserves to be unforgettable. Portfolios and brand sites that open doors and leave an impression.</div><div class="sv-chip" data-i18n="s5c">Personal brand</div></div>
       <div class="sv-card rv d2"><div class="sv-num">06</div><div class="sv-ico">🔧</div><div class="sv-ttl" data-i18n="s6t">Design Systems</div><div class="sv-desc" data-i18n="s6d">From atomic components to full Figma libraries with developer handoff. Teams move faster, quality stays consistent.</div><div class="sv-chip" data-i18n="s6c">Scale ready</div></div>
     </div>
@@ -506,13 +513,13 @@ footer{background:var(--ink);color:white;padding:56px 52px 32px;border-radius:36
     <div class="mac-hdr rv">
       <div class="lbl" style="justify-content:center" data-i18n="mc-lbl">See it in action</div>
       <h2 class="mac-h2" data-i18n="mc-h2">Your project, <em style="font-style:italic;color:var(--blue)">beautifully crafted.</em></h2>
-      <p class="mac-p" data-i18n="mc-p">Every project gets the full treatment - architecture, animations, tokens, deployment.</p>
+      <p class="mac-p" data-i18n="mc-p">Every project gets the full treatment — architecture, animations, tokens, deployment.</p>
     </div>
     <div class="mbp rv d2">
       <div class="mbp-lid">
         <div class="mbp-bezel">
           <div class="mbp-screen">
-            <div class="sc-bar"><div class="sc-dot sd-r"></div><div class="sc-dot sd-y"></div><div class="sc-dot sd-g"></div><div class="sc-url">oriolgallart.design - Lumina Analytics</div></div>
+            <div class="sc-bar"><div class="sc-dot sd-r"></div><div class="sc-dot sd-y"></div><div class="sc-dot sd-g"></div><div class="sc-url">oriolgallart.design — Lumina Analytics</div></div>
             <div class="sc-body">
               <div class="sc-side">
                 <div class="sc-brand">Lumina</div>
@@ -559,7 +566,7 @@ footer{background:var(--ink);color:white;padding:56px 52px 32px;border-radius:36
           <div class="exp-body">
             <div class="exp-role" data-i18n="exp1-role">Web Designer &amp; Landing Pages</div>
             <div class="exp-company" data-i18n="exp1-company">Simon</div>
-            <div class="exp-date" data-i18n="exp1-date">2026 - Present · Actualment</div>
+            <div class="exp-date" data-i18n="exp1-date">2024 - Present</div>
             <div class="exp-desc" data-i18n="exp1-desc">Disseny i construcció de webs i landing pages d'alta conversió per a clients reals.</div>
             <span class="exp-tag" data-i18n="exp1-tag1">🟢 Actual</span><span class="exp-tag" data-i18n="exp1-tag2">Web Design</span><span class="exp-tag" data-i18n="exp1-tag3">Landing Pages</span><span class="exp-tag" data-i18n="exp1-tag4">Frontend</span>
           </div>
@@ -568,8 +575,8 @@ footer{background:var(--ink);color:white;padding:56px 52px 32px;border-radius:36
           <div class="exp-dot" aria-hidden="true">🚀</div>
           <div class="exp-body">
             <div class="exp-role" data-i18n="exp2-role">Projectes Personals &amp; Freelance</div>
-            <div class="exp-company" data-i18n="exp2-company">Oriol Gallart - Independent</div>
-            <div class="exp-date" data-i18n="exp2-date">2026 - Present · Continu</div>
+            <div class="exp-company" data-i18n="exp2-company">Oriol Gallart — Independent</div>
+            <div class="exp-date" data-i18n="exp2-date">2022 - Present</div>
             <div class="exp-desc" data-i18n="exp2-desc">Creació de projectes conceptuals i per a clients: dashboards, landing pages, identitats de marca i sistemes de disseny.</div>
             <span class="exp-tag" data-i18n="exp2-tag1">28+ projectes</span><span class="exp-tag" data-i18n="exp2-tag2">Branding</span><span class="exp-tag" data-i18n="exp2-tag3">UI/UX</span><span class="exp-tag" data-i18n="exp2-tag4">Figma</span>
           </div>
@@ -579,7 +586,7 @@ footer{background:var(--ink);color:white;padding:56px 52px 32px;border-radius:36
           <div class="exp-body">
             <div class="exp-role" data-i18n="exp3-role">Formació en Disseny Web &amp; Frontend</div>
             <div class="exp-company" data-i18n="exp3-company">Autoaprenentatge · Cursos especialitzats</div>
-            <div class="exp-date" data-i18n="exp3-date">2024 - 2026 · Bases</div>
+            <div class="exp-date" data-i18n="exp3-date">2021 - 2022</div>
             <div class="exp-desc" data-i18n="exp3-desc">Dominin de HTML, CSS i JavaScript. Figma, sistemes de disseny i principis UX.</div>
             <span class="exp-tag" data-i18n="exp3-tag1">HTML/CSS</span><span class="exp-tag" data-i18n="exp3-tag2">JavaScript</span><span class="exp-tag" data-i18n="exp3-tag3">Figma</span>
           </div>
@@ -611,7 +618,7 @@ footer{background:var(--ink);color:white;padding:56px 52px 32px;border-radius:36
       <div>
         <div class="lbl rv" data-i18n="ct-lbl">Get in touch</div>
         <h2 class="contact-h2 rv d1" data-i18n="ct-h2">Let's build something<br><em style="font-style:italic;color:var(--blue)">worth remembering.</em></h2>
-        <p class="contact-p rv d2" data-i18n="ct-p">Whether you have a project in mind or just want to explore what's possible - my inbox is always open. I typically respond within 24 hours.</p>
+        <p class="contact-p rv d2" data-i18n="ct-p">Whether you have a project in mind or just want to explore what's possible — my inbox is always open. I typically respond within 24 hours.</p>
         <div class="c-items rv d3">
           <div class="c-item"><div class="c-ico">📍</div>Barcelona, Catalonia</div>
           <div class="c-item"><div class="c-ico">✉️</div>oriolgallart4@gmail.com</div>
@@ -645,7 +652,7 @@ footer{background:var(--ink);color:white;padding:56px 52px 32px;border-radius:36
   <div class="proj-hero">
     <div class="lbl rv" data-i18n="pp-lbl">Case studies</div>
     <h1 class="rv d1" data-i18n="pp-h1">Selected<br><em style="font-style:italic;color:var(--blue)">work.</em></h1>
-    <p class="rv d2" data-i18n="pp-sub">Personal and conceptual projects - each approached as a real client engagement, with research, strategy and production-level output.</p>
+    <p class="rv d2" data-i18n="pp-sub">Personal and conceptual projects — each approached as a real client engagement, with research, strategy and production-level output.</p>
   </div>
   <div class="proj-grid">
     <div class="pc rv" data-proj="lumina">
@@ -658,7 +665,7 @@ footer{background:var(--ink);color:white;padding:56px 52px 32px;border-radius:36
     </div>
     <div class="pc rv d2" data-proj="verdant">
       <div class="pc-vis pv-3"><div class="pc-vis-inner"><div class="pc-vis-t">Verdant</div><div class="pc-vis-s">E-commerce · Landing Page</div></div><div class="pc-overlay"><div class="pc-ov-btn"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M6.5 1.5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pp-view">View case study</span></div></div></div>
-      <div class="pc-body"><div class="pc-tags"><span class="pc-tag">Landing Page</span><span class="pc-tag">E-commerce</span></div><div class="pc-title" data-i18n="p3-t">Verdant - Sustainable Commerce</div><div class="pc-desc" data-i18n="p3-d">High-converting product landing page for a sustainable lifestyle brand. Storytelling-first layout, trust signals and mobile-first performance. Lighthouse 97.</div><div class="pc-result"><strong data-i18n="p-out">Outcome:</strong> <span data-i18n="p3-r">+89% conversion rate vs previous page.</span></div></div>
+      <div class="pc-body"><div class="pc-tags"><span class="pc-tag">Landing Page</span><span class="pc-tag">E-commerce</span></div><div class="pc-title" data-i18n="p3-t">Verdant — Sustainable Commerce</div><div class="pc-desc" data-i18n="p3-d">High-converting product landing page for a sustainable lifestyle brand. Storytelling-first layout, trust signals and mobile-first performance. Lighthouse 97.</div><div class="pc-result"><strong data-i18n="p-out">Outcome:</strong> <span data-i18n="p3-r">+89% conversion rate vs previous page.</span></div></div>
     </div>
     <div class="pc rv d3" data-proj="pulse">
       <div class="pc-vis pv-4"><div class="pc-vis-inner"><div class="pc-vis-t">Pulse Finance</div><div class="pc-vis-s">Fintech · App Design</div></div><div class="pc-overlay"><div class="pc-ov-btn"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M6.5 1.5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="pp-view">View case study</span></div></div></div>
@@ -683,9 +690,9 @@ footer{background:var(--ink);color:white;padding:56px 52px 32px;border-radius:36
         </div>
       </div>
       <div class="soon-main">
-        <div class="soon-eyebrow">Pròximament</div>
-        <div class="soon-title">Algo gran s'acosta.</div>
-        <div class="soon-desc">Estic treballant en nous projectes. Webs, landing pages i experiències digitals que aviat veuran la llum. Stay tuned.</div>
+        <div class="soon-eyebrow" data-i18n="soon-eyebrow">Coming soon</div>
+        <div class="soon-title" data-i18n="soon-title">Something big is coming.</div>
+        <div class="soon-desc" data-i18n="soon-desc">New projects on the way. Websites, landing pages and digital experiences launching soon. Stay tuned.</div>
         <div class="soon-chips">
           <span class="soon-chip">🎨 Web Design</span>
           <span class="soon-chip">⚡ Landing Page</span>
@@ -726,13 +733,13 @@ footer{background:var(--ink);color:white;padding:56px 52px 32px;border-radius:36
   <div class="ct-hero">
     <div class="lbl rv" data-i18n="ct-lbl">Get in touch</div>
     <h1 class="rv d1" data-i18n="ct-h2">Let's build something<br><em style="font-style:italic;color:var(--blue)">worth remembering.</em></h1>
-    <p class="rv d2" data-i18n="ct-p">Whether you have a project in mind, want to explore what's possible, or just want to say hello - I typically respond within 24 hours.</p>
+    <p class="rv d2" data-i18n="ct-p">Whether you have a project in mind, want to explore what's possible, or just want to say hello — I typically respond within 24 hours.</p>
   </div>
   <div class="ct-body">
     <div class="ct-grid">
       <div class="ct-info rv">
         <h3 data-i18n="ct-inf-h">Ready to work together?</h3>
-        <p data-i18n="ct-inf-p">I'm currently taking on new clients and side collaborations. Whether you need a full website, a landing page, or just a second pair of design eyes - let's talk.</p>
+        <p data-i18n="ct-inf-p">I'm currently taking on new clients and side collaborations. Whether you need a full website, a landing page, or just a second pair of design eyes — let's talk.</p>
         <div class="ct-chips"><div class="ct-chip">📍 Barcelona</div><div class="ct-chip">✉️ oriolgallart4@gmail.com</div><div class="ct-chip" data-i18n="ct-avail">🟢 Available now</div></div>
         <div class="ct-socials"><a href="#" class="ct-soc" aria-label="LinkedIn">in</a><a href="#" class="ct-soc" aria-label="Dribbble">Dr</a><a href="#" class="ct-soc" aria-label="GitHub">Gh</a><a href="#" class="ct-soc" aria-label="X">𝕏</a></div>
       </div>
@@ -808,10 +815,10 @@ footer{background:var(--ink);color:white;padding:56px 52px 32px;border-radius:36
 const projects={
   lumina:{bgClass:'pv-1',tags:['UI/UX Design','Frontend','SaaS'],
     title:{en:'Lumina Analytics Dashboard',es:'Dashboard Lumina Analytics',ca:'Dashboard Lumina Analytics'},
-    lede:{en:'A complete redesign of a B2B analytics platform serving 2,000+ users - simplifying dense data without losing depth.',es:'Rediseño completo de una plataforma de analítica B2B con más de 2.000 usuarios.',ca:'Redisseny complet d\'una plataforma d\'analítica B2B amb més de 2.000 usuaris.'},
+    lede:{en:'A complete redesign of a B2B analytics platform serving 2,000+ users — simplifying dense data without losing depth.',es:'Rediseño completo de una plataforma de analítica B2B con más de 2.000 usuarios.',ca:'Redisseny complet d\'una plataforma d\'analítica B2B amb més de 2.000 usuaris.'},
     stats:[{n:'+142%',l:'Task completion'},{n:'60%',l:'Fewer support tickets'},{n:'4.9★',l:'User satisfaction'}],
     challenge:{en:'The existing dashboard overwhelmed users with too much data at once. Navigation was unclear, key metrics were buried, and the visual design hadn\'t been touched in 4 years. The brief: redesign for clarity without losing analytical depth.',es:'El dashboard existente abrumaba a los usuarios con demasiados datos. La navegación era poco clara y el diseño visual llevaba 4 años sin actualizarse.',ca:'El dashboard existent aclaparava els usuaris amb massa dades. La navegació era poc clara i el disseny visual feia 4 anys que no s\'actualitzava.'},
-    approach:{en:'I started with 2 weeks of user research - interviews and session recordings - to map pain points. From there I restructured the IA, built a component library in Figma with 60+ components, and prototyped 3 navigation models for A/B testing. Final implementation in vanilla JS + CSS Grid.',es:'Comencé con 2 semanas de investigación de usuarios para mapear los puntos de dolor. Reestructuré la arquitectura de la información y construí una biblioteca en Figma con 60+ componentes.',ca:'Vaig començar amb 2 setmanes de recerca d\'usuaris. Vaig reestructurar l\'arquitectura de la informació i vaig construir una biblioteca a Figma amb 60+ components.'},
+    approach:{en:'I started with 2 weeks of user research — interviews and session recordings — to map pain points. From there I restructured the IA, built a component library in Figma with 60+ components, and prototyped 3 navigation models for A/B testing. Final implementation in vanilla JS + CSS Grid.',es:'Comencé con 2 semanas de investigación de usuarios para mapear los puntos de dolor. Reestructuré la arquitectura de la información y construí una biblioteca en Figma con 60+ componentes.',ca:'Vaig començar amb 2 setmanes de recerca d\'usuaris. Vaig reestructurar l\'arquitectura de la informació i vaig construir una biblioteca a Figma amb 60+ components.'},
     outcome:{en:'Task completion rate jumped +142%, support tickets dropped 60%, and user satisfaction scores hit 4.9/5. The project was delivered in 6 weeks, on budget, and the client extended the engagement for a second phase.',es:'La tasa de finalización de tareas aumentó un 142%, los tickets bajaron un 60% y la satisfacción alcanzó 4,9/5. Entregado en 6 semanas.',ca:'La taxa de finalització va augmentar un 142%, els tickets van baixar un 60% i la satisfacció va assolir 4,9/5. Lliurat en 6 setmanes.'}
   },
   ember:{bgClass:'pv-2',tags:['Web Design','Branding','Editorial'],
@@ -819,15 +826,15 @@ const projects={
     lede:{en:'Brand identity and website for an independent creative studio. Warm editorial aesthetic, bold type and immersive scroll animations.',es:'Identidad de marca y web para un estudio creativo independiente con estética editorial cálida.',ca:'Identitat de marca i web per a un estudi creatiu independent amb estètica editorial càlida.'},
     stats:[{n:'3',l:'New client contracts'},{n:'1mo',l:'Post-launch results'},{n:'100%',l:'Client satisfaction'}],
     challenge:{en:'A small creative studio needed to reposition themselves as a premium agency. Their existing site was a basic portfolio with no clear narrative or visual identity.',es:'Un pequeño estudio creativo necesitaba reposicionarse como agencia premium con identidad visual sólida.',ca:'Un petit estudi creatiu necessitava reposicionar-se com agència premium amb identitat visual sòlida.'},
-    approach:{en:'I developed a complete brand identity - logo, colour system, type pairing - before touching the website. The site uses an editorial grid inspired by high-end print design, with custom scroll-triggered animations in GSAP.',es:'Desarrollé una identidad de marca completa antes de tocar el sitio web, con una cuadrícula editorial y animaciones GSAP personalizadas.',ca:'Vaig desenvolupar una identitat de marca completa abans de tocar el lloc web, amb una quadrícula editorial i animacions GSAP personalitzades.'},
+    approach:{en:'I developed a complete brand identity — logo, colour system, type pairing — before touching the website. The site uses an editorial grid inspired by high-end print design, with custom scroll-triggered animations in GSAP.',es:'Desarrollé una identidad de marca completa antes de tocar el sitio web, con una cuadrícula editorial y animaciones GSAP personalizadas.',ca:'Vaig desenvolupar una identitat de marca completa abans de tocar el lloc web, amb una quadrícula editorial i animacions GSAP personalitzades.'},
     outcome:{en:'The studio won 3 new client contracts within the first month of launch. The site was featured in 2 design newsletters and the Figma file became a reference for other studio projects.',es:'El estudio ganó 3 nuevos contratos en el primer mes. El sitio fue destacado en 2 newsletters de diseño.',ca:'L\'estudi va guanyar 3 nous contractes en el primer mes. El lloc va ser destacat en 2 newsletters de disseny.'}
   },
   verdant:{bgClass:'pv-3',tags:['Landing Page','E-commerce','Performance'],
-    title:{en:'Verdant - Sustainable Commerce',es:'Verdant - Comercio Sostenible',ca:'Verdant - Comerç Sostenible'},
+    title:{en:'Verdant — Sustainable Commerce',es:'Verdant — Comercio Sostenible',ca:'Verdant — Comerç Sostenible'},
     lede:{en:'A high-converting product landing page for a sustainable lifestyle brand. Storytelling-first, mobile-optimised, Lighthouse 97.',es:'Landing page de alta conversión para una marca de estilo de vida sostenible. Mobile-first, Lighthouse 97.',ca:'Landing page d\'alta conversió per a una marca de vida sostenible. Mobile-first, Lighthouse 97.'},
     stats:[{n:'+89%',l:'Conversion rate'},{n:'2.1s',l:'Avg load time'},{n:'97',l:'Lighthouse score'}],
     challenge:{en:'The brand had a great product but a landing page with 1.2% conversion rate and a 5s load time. They were spending heavily on ads but the page wasn\'t converting.',es:'La marca tenía un gran producto pero una landing con una conversión del 1,2% y 5 segundos de carga.',ca:'La marca tenia un gran producte però una landing amb una conversió de l\'1,2% i 5 segons de càrrega.'},
-    approach:{en:'Full heuristic audit, then rebuilt from scratch: F-pattern layout, social proof above the fold, benefit-led copy, single focused CTA. All images converted to WebP. Pure HTML/CSS/JS - no frameworks.',es:'Auditoría heurística completa y reconstrucción desde cero con principios de conversión: F-pattern, prueba social y CTA única.',ca:'Auditoria heurística completa i reconstrucció des de zero amb principis de conversió: F-pattern, prova social i CTA única.'},
+    approach:{en:'Full heuristic audit, then rebuilt from scratch: F-pattern layout, social proof above the fold, benefit-led copy, single focused CTA. All images converted to WebP. Pure HTML/CSS/JS — no frameworks.',es:'Auditoría heurística completa y reconstrucción desde cero con principios de conversión: F-pattern, prueba social y CTA única.',ca:'Auditoria heurística completa i reconstrucció des de zero amb principis de conversió: F-pattern, prova social i CTA única.'},
     outcome:{en:'Conversion rate went from 1.2% to 2.3% (+89%). Load time dropped from 5s to 2.1s. Lighthouse score: 97. The client reduced ad spend while maintaining the same revenue.',es:'La conversión pasó del 1,2% al 2,3% (+89%). El tiempo de carga bajó de 5s a 2,1s. Lighthouse: 97.',ca:'La conversió va passar de l\'1,2% al 2,3% (+89%). El temps de càrrega va baixar de 5s a 2,1s. Lighthouse: 97.'}
   },
   pulse:{bgClass:'pv-4',tags:['App Design','Fintech','Mobile'],
@@ -844,7 +851,7 @@ const T={
   en:{
     'nav-home':'Home','nav-projects':'My Projects','nav-contact':'Contact',
     'h-avail':'Available for projects','h-t1':'Designing','h-t2':'experiences','h-t3':'that convert.',
-    'h-desc':'Web Designer & Frontend Developer based in Barcelona. I craft digital products that merge strong visual identity with seamless functionality - pixel-perfect, performance-driven.',
+    'h-desc':'Web Designer & Frontend Developer based in Barcelona. I craft digital products that merge strong visual identity with seamless functionality — pixel-perfect, performance-driven.',
     'h-cta1':'View my work','h-cta2':'Let\'s talk →','h-scroll':'Scroll to explore',
     'ab-lbl':'About me','ab-h2':'Obsessed with the craft of the web.',
     'ab-p1':'I\'m a web designer and frontend developer who believes the best digital products are born at the intersection of art and engineering.',
@@ -857,32 +864,34 @@ const T={
     's4t':'Frontend Dev','s4d':'Clean, semantic HTML/CSS and modern JavaScript.','s4c':'Performance first',
     's5t':'Portfolio & Brand','s5d':'Websites that open doors and leave impressions.','s5c':'Personal brand',
     's6t':'Design Systems','s6d':'Figma libraries with developer handoff documentation.','s6c':'Scale ready',
-    'mc-lbl':'See it in action','mc-h2':'Your project, beautifully crafted.','mc-p':'Every project gets the full treatment - architecture, animations, tokens, deployment.',
+    'mc-lbl':'See it in action','mc-h2':'Your project, beautifully crafted.','mc-p':'Every project gets the full treatment — architecture, animations, tokens, deployment.',
     'sk-lbl':'Expertise','sk-h2':'Tools & skills.','sk-sub':'A curated stack for quality, performance and maintainability.',
     'sk1':'Expert · Design Systems','sk2':'Advanced · Semantic markup','sk3':'Advanced · Vanilla + React','sk4':'Intermediate · Next.js','sk5':'GSAP · Framer · CSS','sk6':'Mobile-first approach','sk7':'Lighthouse 90+ scores','sk8':'Editorial · Type systems',
     'ct-lbl':'Get in touch','ct-h2':'Let\'s build something worth remembering.','ct-p':'My inbox is always open. I typically respond within 24 hours.','ct-tz':'CET · UTC+1 · Responds in 24h',
-    'ct-inf-h':'Ready to work together?','ct-inf-p':'Currently taking on new clients. Full website, landing page, or design eyes - let\'s talk.','ct-avail':'🟢 Available now',
+    'ct-inf-h':'Ready to work together?','ct-inf-p':'Currently taking on new clients. Full website, landing page, or design eyes — let\'s talk.','ct-avail':'🟢 Available now',
     'f-name':'Name','f-email':'Email','f-sub':'Subject','f-msg':'Message','f-send':'Send message',
-    'pp-lbl':'Case studies','pp-h1':'Selected work.','pp-sub':'Personal and conceptual projects - each approached as a real client engagement.',
+    'pp-lbl':'Case studies','pp-h1':'Selected work.','pp-sub':'Personal and conceptual projects — each approached as a real client engagement.',
     'pp-view':'View case study','p-out':'Outcome:',
     'p1-t':'Lumina Analytics Dashboard','p1-d':'Complete redesign of a B2B analytics platform for 2,000+ users.','p1-r':'+142% task completion, 60% fewer tickets.',
     'p2-t':'Ember Creative Studio','p2-d':'Brand identity and website for an independent creative studio.','p2-r':'3 new contracts within month one.',
-    'p3-t':'Verdant - Sustainable Commerce','p3-d':'High-converting landing page for a sustainable lifestyle brand.','p3-r':'+89% conversion rate.',
+    'p3-t':'Verdant — Sustainable Commerce','p3-d':'High-converting landing page for a sustainable lifestyle brand.','p3-r':'+89% conversion rate.',
     'p4-t':'Pulse Finance App','p4-d':'Mobile-first UI for a personal finance tracking app.','p4-r':'4.8★ in beta user testing.',
     'pd-back':'Back to projects','pd-challenge':'The Challenge','pd-approach':'Design Approach','pd-outcome':'Outcome',
     'pd-more':'← More projects','pd-collab':'Start a similar project →',
     'ft-copy':'© 2025 Oriol Gallart. Crafted with obsessive attention to detail.','ft-made':'Designed & built in Barcelona 🇪🇸',
+    'soon-eyebrow':'Coming soon','soon-title':'Something big is coming.',
+    'soon-desc':'New projects on the way. Websites, landing pages and digital experiences launching soon. Stay tuned.',
     'exp-lbl':'Career','exp-h2':'Experience & journey.',
     'exp-sub':'From personal projects to the real industry. Every step, a quality leap.',
-    'exp1-role':'Web Designer & Landing Pages','exp1-company':'Simon','exp1-date':'2024 - Present · Current',
+    'exp1-role':'Web Designer & Landing Pages','exp1-company':'Simon','exp1-date':'2024 - Present',
     'exp1-desc':'Design and development of high-converting websites and landing pages for real clients. Responsible for visual design, Figma prototyping and frontend implementation. Close collaboration with the marketing team to maximise results.',
     'exp1-tag1':'🟢 Current','exp1-tag2':'Web Design','exp1-tag3':'Landing Pages','exp1-tag4':'Frontend',
-    'exp2-role':'Personal Projects & Freelance','exp2-company':'Oriol Gallart - Independent',
-    'exp2-date':'2022 - Present · Ongoing',
-    'exp2-desc':'Creation of conceptual and client projects: dashboards, landing pages, brand identities and design systems. Each project treated as a real client engagement - research, strategy and production-level code.',
+    'exp2-role':'Personal Projects & Freelance','exp2-company':'Oriol Gallart — Independent',
+    'exp2-date':'2022 - Present',
+    'exp2-desc':'Creation of conceptual and client projects: dashboards, landing pages, brand identities and design systems. Each project treated as a real client engagement — research, strategy and production-level code.',
     'exp2-tag1':'28+ projects','exp2-tag2':'Branding','exp2-tag3':'UI/UX','exp2-tag4':'Figma',
     'exp3-role':'Web Design & Frontend Training','exp3-company':'Self-taught · Specialised courses',
-    'exp3-date':'2021 - 2022 · Foundations',
+    'exp3-date':'2021 - 2022',
     'exp3-desc':'Mastery of HTML, CSS and JavaScript. Figma, design systems and UX principles. From day one, a focus on quality and attention to detail.',
     'exp3-tag1':'HTML/CSS','exp3-tag2':'JavaScript','exp3-tag3':'Figma'
   },
@@ -908,26 +917,28 @@ const T={
     'ct-lbl':'Contacto','ct-h2':'Construyamos algo que valga la pena recordar.','ct-p':'Mi bandeja siempre está abierta. Respondo en menos de 24 horas.','ct-tz':'CET · UTC+1 · Respondo en 24h',
     'ct-inf-h':'¿Listo para trabajar juntos?','ct-inf-p':'Actualmente acepto nuevos clientes. Hablemos.','ct-avail':'🟢 Disponible ahora',
     'f-name':'Nombre','f-email':'Email','f-sub':'Asunto','f-msg':'Mensaje','f-send':'Enviar mensaje',
-    'pp-lbl':'Casos de estudio','pp-h1':'Trabajo seleccionado.','pp-sub':'Proyectos personales y conceptuales - cada uno tratado como un encargo real.',
+    'pp-lbl':'Casos de estudio','pp-h1':'Trabajo seleccionado.','pp-sub':'Proyectos personales y conceptuales — cada uno tratado como un encargo real.',
     'pp-view':'Ver caso de estudio','p-out':'Resultado:',
     'p1-t':'Dashboard Lumina Analytics','p1-d':'Rediseño completo de plataforma B2B para más de 2.000 usuarios.','p1-r':'+142% en tareas, 60% menos tickets.',
     'p2-t':'Ember Creative Studio','p2-d':'Identidad de marca y web para un estudio creativo independiente.','p2-r':'3 nuevos contratos en el primer mes.',
-    'p3-t':'Verdant - Comercio Sostenible','p3-d':'Landing page de alta conversión para marca de vida sostenible.','p3-r':'+89% en tasa de conversión.',
+    'p3-t':'Verdant — Comercio Sostenible','p3-d':'Landing page de alta conversión para marca de vida sostenible.','p3-r':'+89% en tasa de conversión.',
     'p4-t':'App Pulse Finance','p4-d':'UI mobile-first para app de finanzas personales.','p4-r':'4.8★ en pruebas beta.',
     'pd-back':'Volver a proyectos','pd-challenge':'El Reto','pd-approach':'Enfoque de Diseño','pd-outcome':'Resultado',
     'pd-more':'← Más proyectos','pd-collab':'Iniciar un proyecto similar →',
     'ft-copy':'© 2025 Oriol. Creado con atención obsesiva al detalle.','ft-made':'Diseñado y construido en Barcelona 🇪🇸',
+    'soon-eyebrow':'Próximamente','soon-title':'Algo grande se acerca.',
+    'soon-desc':'Nuevos proyectos en camino. Webs, landing pages y experiencias digitales que pronto verán la luz. Stay tuned.',
     'exp-lbl':'Trayectoria','exp-h2':'Experiencia & recorrido.',
     'exp-sub':'Del proyecto personal a la empresa. Cada etapa, un salto de calidad.',
-    'exp1-role':'Web Designer & Landing Pages','exp1-company':'Simon','exp1-date':'2024 - Presente · Actual',
+    'exp1-role':'Web Designer & Landing Pages','exp1-company':'Simon','exp1-date':'2024 - Present',
     'exp1-desc':'Diseño y desarrollo de webs y landing pages de alta conversión para clientes reales. Responsable del diseño visual, prototipado en Figma e implementación frontend. Trabajo estrecho con el equipo de marketing para maximizar resultados.',
     'exp1-tag1':'🟢 Actual','exp1-tag2':'Web Design','exp1-tag3':'Landing Pages','exp1-tag4':'Frontend',
-    'exp2-role':'Proyectos Personales & Freelance','exp2-company':'Oriol Gallart - Independiente',
-    'exp2-date':'2022 - Presente · Continuo',
-    'exp2-desc':'Creación de proyectos conceptuales y para clientes: dashboards, landing pages, identidades de marca y sistemas de diseño. Cada proyecto tratado como un encargo real - investigación, estrategia y código a nivel de producción.',
+    'exp2-role':'Proyectos Personales & Freelance','exp2-company':'Oriol Gallart — Independiente',
+    'exp2-date':'2022 - Present',
+    'exp2-desc':'Creación de proyectos conceptuales y para clientes: dashboards, landing pages, identidades de marca y sistemas de diseño. Cada proyecto tratado como un encargo real — investigación, estrategia y código a nivel de producción.',
     'exp2-tag1':'28+ proyectos','exp2-tag2':'Branding','exp2-tag3':'UI/UX','exp2-tag4':'Figma',
     'exp3-role':'Formación en Diseño Web & Frontend','exp3-company':'Autoaprendizaje · Cursos especializados',
-    'exp3-date':'2021 - 2022 · Bases',
+    'exp3-date':'2021 - 2022',
     'exp3-desc':'Dominio de HTML, CSS y JavaScript. Figma, sistemas de diseño y principios UX. Desde el primer día, un enfoque orientado a la calidad y la atención al detalle.',
     'exp3-tag1':'HTML/CSS','exp3-tag2':'JavaScript','exp3-tag3':'Figma'
   },
@@ -953,26 +964,28 @@ const T={
     'ct-lbl':'Contacta','ct-h2':'Construïm alguna cosa que valgui la pena recordar.','ct-p':'La meva safata sempre és oberta. Acostumo a respondre en menys de 24 hores.','ct-tz':'CET · UTC+1 · Respon en 24h',
     'ct-inf-h':'Llest per treballar junts?','ct-inf-p':'Actualment accepto nous clients. Parlem.','ct-avail':'🟢 Disponible ara',
     'f-name':'Nom','f-email':'Email','f-sub':'Assumpte','f-msg':'Missatge','f-send':'Enviar missatge',
-    'pp-lbl':'Casos d\'estudi','pp-h1':'Treball seleccionat.','pp-sub':'Projectes personals i conceptuals - cada un tractat com un encàrrec real.',
+    'pp-lbl':'Casos d\'estudi','pp-h1':'Treball seleccionat.','pp-sub':'Projectes personals i conceptuals — cada un tractat com un encàrrec real.',
     'pp-view':'Veure cas d\'estudi','p-out':'Resultat:',
     'p1-t':'Dashboard Lumina Analytics','p1-d':'Redisseny complet de plataforma B2B per a més de 2.000 usuaris.','p1-r':'+142% en tasques, 60% menys tickets.',
     'p2-t':'Ember Creative Studio','p2-d':'Identitat de marca i web per a un estudi creatiu independent.','p2-r':'3 nous contractes en el primer mes.',
-    'p3-t':'Verdant - Comerç Sostenible','p3-d':'Landing page d\'alta conversió per a marca de vida sostenible.','p3-r':'+89% en taxa de conversió.',
+    'p3-t':'Verdant — Comerç Sostenible','p3-d':'Landing page d\'alta conversió per a marca de vida sostenible.','p3-r':'+89% en taxa de conversió.',
     'p4-t':'App Pulse Finance','p4-d':'UI mobile-first per a app de finances personals.','p4-r':'4.8★ en proves beta.',
     'pd-back':'Tornar als projectes','pd-challenge':'El Repte','pd-approach':'Enfocament de Disseny','pd-outcome':'Resultat',
     'pd-more':'← Més projectes','pd-collab':'Iniciar un projecte similar →',
     'ft-copy':'© 2025 Oriol Gallart. Creat amb atenció obsessiva al detall.','ft-made':'Dissenyat i construït a Barcelona 🇪🇸',
+    'soon-eyebrow':'Pròximament','soon-title':'Algo gran s\'acosta.',
+    'soon-desc':'Nous projectes en camí. Webs, landing pages i experiències digitals que aviat veuran la llum. Stay tuned.',
     'exp-lbl':'Trajectòria','exp-h2':'Experiència & recorregut.',
     'exp-sub':'Del projecte personal a l\'empresa. Cada etapa, un salt de qualitat.',
-    'exp1-role':'Web Designer & Landing Pages','exp1-company':'Simon','exp1-date':'2024 - Present · Actualment',
+    'exp1-role':'Web Designer & Landing Pages','exp1-company':'Simon','exp1-date':'2024 - Present',
     'exp1-desc':'Disseny i construcció de webs i landing pages d\'alta conversió per a clients reals. Responsable del disseny visual, prototipat en Figma i implementació frontend. Treball estret amb equip de màrqueting per maximitzar resultats.',
     'exp1-tag1':'🟢 Actual','exp1-tag2':'Web Design','exp1-tag3':'Landing Pages','exp1-tag4':'Frontend',
-    'exp2-role':'Projectes Personals & Freelance','exp2-company':'Oriol Gallart - Independent',
-    'exp2-date':'2022 - Present · Continu',
-    'exp2-desc':'Creació de projectes conceptuals i per a clients: dashboards, landing pages, identitats de marca i sistemes de disseny. Cada projecte tractat com un encàrrec real - recerca, estratègia i codi a nivell de producció.',
+    'exp2-role':'Projectes Personals & Freelance','exp2-company':'Oriol Gallart — Independent',
+    'exp2-date':'2022 - Present',
+    'exp2-desc':'Creació de projectes conceptuals i per a clients: dashboards, landing pages, identitats de marca i sistemes de disseny. Cada projecte tractat com un encàrrec real — recerca, estratègia i codi a nivell de producció.',
     'exp2-tag1':'28+ projectes','exp2-tag2':'Branding','exp2-tag3':'UI/UX','exp2-tag4':'Figma',
     'exp3-role':'Formació en Disseny Web & Frontend','exp3-company':'Autoaprenentatge · Cursos especialitzats',
-    'exp3-date':'2021 - 2022 · Bases',
+    'exp3-date':'2021 - 2022',
     'exp3-desc':'Dominin de HTML, CSS i JavaScript. Figma, sistemes de disseny i principis UX. Des del primer dia, un enfocament orientat a la qualitat i l\'atenció al detall.',
     'exp3-tag1':'HTML/CSS','exp3-tag2':'JavaScript','exp3-tag3':'Figma'
   }
@@ -1057,8 +1070,17 @@ const hdr=document.getElementById('hdr');
 window.addEventListener('scroll',()=>hdr.classList.toggle('solid',window.scrollY>40),{passive:true});
 
 // Reveals
-const revObs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});
-function triggerReveals(){document.querySelectorAll('.rv').forEach(el=>{el.classList.remove('in');revObs.observe(el)})}
+const revObs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in');revObs.unobserve(e.target);}
+}),{threshold:0,rootMargin:'0px 0px -10px 0px'});
+function triggerReveals(){
+  document.querySelectorAll('.rv').forEach(el=>{
+    el.classList.remove('in');
+    const r=el.getBoundingClientRect();
+    if(r.top < window.innerHeight && r.bottom > 0){el.classList.add('in');}
+    else{revObs.observe(el);}
+  });
+}
 triggerReveals();
 
 // Skill bars
